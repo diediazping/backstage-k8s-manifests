@@ -27,11 +27,11 @@ SA_TOKEN=$(kubectl create token backstage -n $NAMESPACE --duration=8760h 2>/dev/
 # Create backstage secrets with real values
 echo "🔐 Creating secrets..."
 kubectl create secret generic backstage-secrets \
-  --from-literal=GITHUB_TOKEN='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' \
-  --from-literal=AUTH_GITHUB_CLIENT_ID='Ov23li8UQEjN0or60bp4' \
-  --from-literal=AUTH_GITHUB_CLIENT_SECRET='20730cb7f7bab15f3a2a1c718327c1cc76ea063d' \
+  --from-literal=GITHUB_TOKEN=$yourgithubtoken \
+  --from-literal=AUTH_GITHUB_CLIENT_ID=$yourgithubclientid \
+  --from-literal=AUTH_GITHUB_CLIENT_SECRET=$yourgithubclientsecret \
   --from-literal=K8S_SERVICE_ACCOUNT_TOKEN="$SA_TOKEN" \
-  --from-literal=ARGOCD_TOKEN='argocd.token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcmdvY2QiLCJzdWIiOiJhZG1pbjphcGlLZXkiLCJuYmYiOjE3NDc2OTE0NzksImlhdCI6MTc0NzY5MTQ3OSwianRpIjoiYjIxNWExNDctMzE2ZC00ZTVmLWE1ZmYtMjQ2NDE4NDdkYjM4In0.6pfRzgGWpJqC9oojROyVqo2NdlsXWpUpt1ECBU8jM_o' \
+  --from-literal=ARGOCD_TOKEN=$yourargocdtoken \
   -n $NAMESPACE \
   --dry-run=client -o yaml | kubectl apply -f -
 

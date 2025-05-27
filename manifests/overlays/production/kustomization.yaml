@@ -13,7 +13,7 @@ patchesStrategicMerge:
 # ESCALA LAS RÉPLICAS PARA PRODUCCIÓN
 replicas:
 - name: backstage
-  count: 2
+  count: 1
 
 # REEMPLAZA LA IMAGEN DEL DEPLOYMENT BASE
 images:

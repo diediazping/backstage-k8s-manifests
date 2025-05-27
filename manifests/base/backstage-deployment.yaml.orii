@@ -32,12 +32,26 @@ spec:
         - name: K8S_CLUSTER_URL
           value: https://kubernetes.default.svc
         - name: K8S_CLUSTER_NAME
-          value: poc-kafka 
+          value: production
         envFrom:
         - secretRef:
             name: postgres-secrets
         - secretRef:
             name: backstage-secrets
+        livenessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 7007
+          initialDelaySeconds: 60
+          periodSeconds: 30
+          timeoutSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 7007
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
         resources:
           requests:
             memory: "512Mi"

@@ -18,7 +18,7 @@ spec:
       serviceAccountName: backstage
       containers:
       - name: backstage
-        image: backstage:latest  # ESTO SE REEMPLAZA POR KUSTOMIZE
+        image: 851725646489.dkr.ecr.us-east-1.amazonaws.com/backstage:main-de72acd
         ports:
         - name: http
           containerPort: 7007

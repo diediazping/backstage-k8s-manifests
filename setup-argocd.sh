@@ -27,7 +27,7 @@ SA_TOKEN=$(kubectl create token backstage -n $NAMESPACE --duration=8760h 2>/dev/
 # Create backstage secrets with real values
 echo "🔐 Creating secrets..."
 kubectl create secret generic backstage-secrets \
-  --from-literal=GITHUB_TOKEN='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' \
+  --from-literal=GITHUB_TOKEN='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' \
   --from-literal=AUTH_GITHUB_CLIENT_ID='Ov23li8UQEjN0or60bp4' \
   --from-literal=AUTH_GITHUB_CLIENT_SECRET='20730cb7f7bab15f3a2a1c718327c1cc76ea063d' \
   --from-literal=K8S_SERVICE_ACCOUNT_TOKEN="$SA_TOKEN" \
